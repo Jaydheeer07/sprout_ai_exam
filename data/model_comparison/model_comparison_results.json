@@ -1,0 +1,242 @@
+[
+  {
+    "model_name": "Twitter-RoBERTa-Latest",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "description": "RoBERTa trained on 124M tweets (2018-2021), TweetEval fine-tuned",
+    "accuracy": 86.75,
+    "precision_macro": 86.87,
+    "recall_macro": 86.68,
+    "f1_macro": 86.6,
+    "class_metrics": {
+      "negative": {
+        "precision": 93.59,
+        "recall": 82.49,
+        "f1_score": 87.69,
+        "support": 177
+      },
+      "neutral": {
+        "precision": 82.76,
+        "recall": 86.33,
+        "f1_score": 84.51,
+        "support": 139
+      },
+      "positive": {
+        "precision": 84.26,
+        "recall": 91.21,
+        "f1_score": 87.6,
+        "support": 182
+      }
+    },
+    "confusion_matrix": [
+      [
+        146,
+        14,
+        17
+      ],
+      [
+        5,
+        120,
+        14
+      ],
+      [
+        5,
+        11,
+        166
+      ]
+    ],
+    "inference_time": 15.79,
+    "time_per_sample_ms": 31.7
+  },
+  {
+    "model_name": "Twitter-RoBERTa-Original",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "description": "Original RoBERTa trained on 58M tweets, TweetEval fine-tuned",
+    "accuracy": 83.53,
+    "precision_macro": 83.56,
+    "recall_macro": 83.55,
+    "f1_macro": 83.38,
+    "class_metrics": {
+      "negative": {
+        "precision": 90.38,
+        "recall": 79.66,
+        "f1_score": 84.68,
+        "support": 177
+      },
+      "neutral": {
+        "precision": 78.0,
+        "recall": 84.17,
+        "f1_score": 80.97,
+        "support": 139
+      },
+      "positive": {
+        "precision": 82.29,
+        "recall": 86.81,
+        "f1_score": 84.49,
+        "support": 182
+      }
+    },
+    "confusion_matrix": [
+      [
+        141,
+        17,
+        19
+      ],
+      [
+        7,
+        117,
+        15
+      ],
+      [
+        8,
+        16,
+        158
+      ]
+    ],
+    "inference_time": 15.56,
+    "time_per_sample_ms": 31.2
+  },
+  {
+    "model_name": "BERTweet-Sentiment",
+    "model_id": "finiteautomata/bertweet-base-sentiment-analysis",
+    "description": "BERTweet fine-tuned for sentiment analysis",
+    "accuracy": 86.75,
+    "precision_macro": 86.73,
+    "recall_macro": 86.25,
+    "f1_macro": 86.36,
+    "class_metrics": {
+      "negative": {
+        "precision": 93.83,
+        "recall": 85.88,
+        "f1_score": 89.68,
+        "support": 177
+      },
+      "neutral": {
+        "precision": 82.35,
+        "recall": 80.58,
+        "f1_score": 81.45,
+        "support": 139
+      },
+      "positive": {
+        "precision": 84.0,
+        "recall": 92.31,
+        "f1_score": 87.96,
+        "support": 182
+      }
+    },
+    "confusion_matrix": [
+      [
+        152,
+        13,
+        12
+      ],
+      [
+        7,
+        112,
+        20
+      ],
+      [
+        3,
+        11,
+        168
+      ]
+    ],
+    "inference_time": 16.39,
+    "time_per_sample_ms": 32.9
+  },
+  {
+    "model_name": "RoBERTa-Large-3Class",
+    "model_id": "j-hartmann/sentiment-roberta-large-english-3-classes",
+    "description": "RoBERTa-large fine-tuned on 5.3K social media posts (86.1% reported)",
+    "accuracy": 81.73,
+    "precision_macro": 82.9,
+    "recall_macro": 82.66,
+    "f1_macro": 81.69,
+    "class_metrics": {
+      "negative": {
+        "precision": 88.96,
+        "recall": 81.92,
+        "f1_score": 85.29,
+        "support": 177
+      },
+      "neutral": {
+        "precision": 68.06,
+        "recall": 93.53,
+        "f1_score": 78.79,
+        "support": 139
+      },
+      "positive": {
+        "precision": 91.67,
+        "recall": 72.53,
+        "f1_score": 80.98,
+        "support": 182
+      }
+    },
+    "confusion_matrix": [
+      [
+        145,
+        24,
+        8
+      ],
+      [
+        5,
+        130,
+        4
+      ],
+      [
+        13,
+        37,
+        132
+      ]
+    ],
+    "inference_time": 57.45,
+    "time_per_sample_ms": 115.4
+  },
+  {
+    "model_name": "DistilBERT-Multilingual-3Class",
+    "model_id": "lxyuan/distilbert-base-multilingual-cased-sentiments-student",
+    "description": "Distilled multilingual model, fast inference",
+    "accuracy": 58.63,
+    "precision_macro": 53.51,
+    "recall_macro": 54.34,
+    "f1_macro": 47.23,
+    "class_metrics": {
+      "negative": {
+        "precision": 72.04,
+        "recall": 75.71,
+        "f1_score": 73.83,
+        "support": 177
+      },
+      "neutral": {
+        "precision": 37.5,
+        "recall": 2.16,
+        "f1_score": 4.08,
+        "support": 139
+      },
+      "positive": {
+        "precision": 50.99,
+        "recall": 85.16,
+        "f1_score": 63.79,
+        "support": 182
+      }
+    },
+    "confusion_matrix": [
+      [
+        134,
+        4,
+        39
+      ],
+      [
+        26,
+        3,
+        110
+      ],
+      [
+        26,
+        1,
+        155
+      ]
+    ],
+    "inference_time": 10.03,
+    "time_per_sample_ms": 20.1
+  }
+]

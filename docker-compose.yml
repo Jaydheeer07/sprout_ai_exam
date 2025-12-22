@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  # Task 2: Sentiment API (Port 8000)
+  # Pure sentiment analysis service - ML model only
+  sentiment-api:
+    build: .
+    container_name: sprout-sentiment-api
+    command: uvicorn task2_sentiment_api.main:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    environment:
+      - SENTIMENT_MODEL_NAME=${SENTIMENT_MODEL_NAME:-cardiffnlp/twitter-roberta-base-sentiment-latest}
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+    volumes:
+      - ./data:/app/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  # Task 3: Agent API (Port 8001)
+  # ReACT agent that calls Sentiment API as a tool
+  agent-api:
+    build: .
+    container_name: sprout-agent-api
+    command: uvicorn task3_agent_workflow.main:app --host 0.0.0.0 --port 8001
+    ports:
+      - "8001:8001"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-5-mini}
+      - SENTIMENT_API_URL=http://sentiment-api:8000
+      - API_HOST=0.0.0.0
+      - API_PORT=8001
+    depends_on:
+      sentiment-api:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Task 3: Chainlit Frontend (Port 8080)
+  # Pure UI that calls Agent API
+  chainlit-fe:
+    build: .
+    container_name: sprout-chainlit-fe
+    command: chainlit run task3_agent_workflow/app.py --host 0.0.0.0 --port 8080
+    ports:
+      - "8080:8080"
+    environment:
+      - AGENT_API_URL=http://agent-api:8001
+      - CHAINLIT_HOST=0.0.0.0
+      - CHAINLIT_PORT=8080
+    depends_on:
+      - agent-api
+    restart: unless-stopped
+
+volumes:
+  data:
