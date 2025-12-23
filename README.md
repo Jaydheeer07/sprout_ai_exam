@@ -12,7 +12,7 @@ This project implements a **production-ready microservices architecture** with c
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
 │   ┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐      │
-│   │  Chainlit FE     │───▶│   Agent API      │───▶│  Sentiment API   │      │
+│   │  Chainlit FE     │───▶    Agent API      │───▶   Sentiment API  │      │
 │   │  (Port 8080)     │    │   (Port 8001)    │    │  (Port 8000)     │      │
 │   │                  │    │                  │    │                  │      │
 │   │  Pure UI         │    │  ReACT Agent     │    │  ML Model        │      │
@@ -260,15 +260,6 @@ Interactive API documentation is available at:
 
 - Swagger UI: http://localhost:8000/docs
 - ReDoc: http://localhost:8000/redoc
-
-## 🔮 Future Improvements
-
-- Fine-tune model on domain-specific data
-- Add conversation memory/context persistence
-- Implement multi-language support
-- Add monitoring and observability (Prometheus/Grafana)
-- A/B testing framework for agent responses
-- MCP server implementation for broader tool integration
 
 ## 📄 License
 
